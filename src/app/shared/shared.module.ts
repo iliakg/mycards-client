@@ -12,7 +12,7 @@ import {HeaderComponent} from './components/header/header.component'
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    // RouterModule
+    RouterModule
   ],
   declarations: [
     FormErrorsComponent,

@@ -8,7 +8,7 @@
         </a>
       </div>
       <div class="col s3 m3 l3 center">
-        <a routerLink="/">
+        <a routerLink="/favorites">
           <i class="icon icons-star-1"></i>
         </a>
       </div>
@@ -18,10 +18,20 @@
         </a>
       </div>
       <div class="col s3 m3 l3 center">
-        <a routerLink="/">
+        <a href="javascript:void(0);" (click)="openProfileModal()">
           <i class="icon icons-profile-close-1"></i>
         </a>
       </div>
     </div>
   </div>
 </nav>
+
+<div id="login_modal" class="modal">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>

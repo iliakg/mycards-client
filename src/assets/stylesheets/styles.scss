@@ -1,6 +1,6 @@
-@import "../../../node_modules/materialize-css/sass/components/color-variables";
+@import "~materialize-css/sass/components/color-variables";
 @import "colors";
-@import "../../../node_modules/materialize-css/sass/materialize";
+@import "~materialize-css/sass/materialize";
 @import "icons";
 
 html, body {
@@ -22,4 +22,8 @@ nav {
       line-height: 74px;
     }
   }
+}
+
+#login_modal {
+
 }
