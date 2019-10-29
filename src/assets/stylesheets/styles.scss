@@ -1,0 +1,25 @@
+@import "../../../node_modules/materialize-css/sass/components/color-variables";
+@import "colors";
+@import "../../../node_modules/materialize-css/sass/materialize";
+@import "icons";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  height: 64px;
+  line-height: 64px;
+
+  a {
+    display: block;
+    cursor: pointer;
+
+    .icon {
+      font-size: 28px;
+      line-height: 74px;
+    }
+  }
+}
