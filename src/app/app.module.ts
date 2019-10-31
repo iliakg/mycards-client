@@ -7,13 +7,24 @@ import {AppComponent} from './app.component'
 import {ApplicationLayoutComponent} from './layouts/application-layout/application-layout.component'
 import {NotFoundComponent} from './not-found/not-found.component'
 import {SharedModule} from './shared/shared.module'
+import {AuthGuard} from './shared/guards/auth.guard'
 
 const appRoutes: Routes = [
   {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {
     path: '', component: ApplicationLayoutComponent, children: [
-      {path: 'favorites', loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesModule)},
-      {path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
+      {
+        path: 'favorites',
+        loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesModule),
+        canActivate: [AuthGuard],
+        canLoad: [AuthGuard]
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
+        canActivate: [AuthGuard],
+        canLoad: [AuthGuard]
+      },
       {path: 'not-found', component: NotFoundComponent}
     ]
   },
@@ -22,7 +33,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'}),
     BrowserModule,
     HttpClientModule,
     SharedModule

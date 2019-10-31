@@ -26,16 +26,16 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    this.form.disable()
-
-    this.auth.registration(this.form.value).subscribe(
-      () => {
-        this.router.navigate(['/'])
-      },
-      error => {
-        // MaterialService.toast(error, 'error')
-        this.form.enable()
-      }
-    )
+    // this.form.disable()
+    //
+    // this.auth.registration(this.form.value).subscribe(
+    //   () => {
+    //     this.router.navigate(['/'])
+    //   },
+    //   error => {
+    //     // MaterialService.toast(error, 'error')
+    //     this.form.enable()
+    //   }
+    // )
   }
 }
