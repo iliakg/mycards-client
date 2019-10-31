@@ -68,3 +68,11 @@
 .icons-close:before {
   content: "\68";
 }
+
+.icons-settings:before {
+  content: "\69";
+}
+
+.icons-profile-cards:before {
+  content: "\6a";
+}

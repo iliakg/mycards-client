@@ -4,11 +4,25 @@
     <div class="username">{{currentUser.username}}</div>
     <div class="email">{{currentUser.email}}</div>
   </div>
+
   <hr>
 
-  <a href="javascript:void(0);" (click)="logout($event)">
-    Log out
-  </a>
+  <ul class="profile-list">
+    <li>
+      <i class="icon icons-profile-cards"></i>
+      My Flashcards
+    </li>
+    <li>
+      <i class="icon icons-settings"></i>
+      Settings
+    </li>
+    <li>
+      <a href="javascript:void(0);" (click)="logout($event)">
+        <i class="icon icons-smile-sad"></i>
+        Log Out
+      </a>
+    </li>
+  </ul>
 </div>
 
 <ng-template #loader>

@@ -3,6 +3,7 @@
 @import "~materialize-css/sass/materialize";
 @import "icons";
 
+$text_color: color("blue-grey", "darken-2");
 $border_color: color("blue-grey", "lighten-3");
 $hint_text: color("blue-grey", "lighten-1");
 $light_green: #3cba92;
@@ -13,6 +14,7 @@ html, body {
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  color: $text_color;
 }
 
 h1 {
@@ -25,6 +27,11 @@ a {
 
 input {
   font-size: 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 .preloader {
@@ -163,8 +170,8 @@ nav {
   padding: 2rem;
 
   .avatar {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     margin: 0 auto;
 
     img {
@@ -193,5 +200,23 @@ nav {
     height: 1px;
     margin: 1.5rem 0;
     border: 0;
+  }
+
+  ul.profile-list {
+    li {
+      margin: 1.5rem 0;
+      font-size: 18px;
+
+      .icon {
+        margin-right: 0.5rem;
+        vertical-align: middle;
+        font-size: 32px;
+        line-height: 32px;
+      }
+
+      a {
+        color: $text_color;
+      }
+    }
   }
 }
