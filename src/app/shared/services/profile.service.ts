@@ -12,7 +12,7 @@ import {AuthService} from './auth.service'
 })
 
 export class ProfileService {
-  // userObs: Observable<any> = null
+  userObs: Observable<any> = null
 
   @Output() changeUser: EventEmitter<any> = new EventEmitter()
 
@@ -22,16 +22,16 @@ export class ProfileService {
   ) {
   }
 
-  // fetchCurrentUser() {
-  //   if (!this.userObs) {
-  //     this.userObs = this.http.get('/api/profile').pipe(
-  //       publishReplay(1),
-  //       refCount()
-  //     )
-  //   }
-  //
-  //   return this.userObs
-  // }
+  fetchCurrentUser() {
+    if (!this.userObs) {
+      this.userObs = this.http.get('/api/profile').pipe(
+        publishReplay(1),
+        refCount()
+      )
+    }
+
+    return this.userObs
+  }
 
   create(data: FormData): Observable<User> {
     return this.http.post<User>('/api/registration', data)

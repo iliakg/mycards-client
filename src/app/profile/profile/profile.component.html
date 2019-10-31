@@ -1,5 +1,16 @@
-<p>profile works!</p>
+<div id="profile_wrap" *ngIf="($currentUser | async) as currentUser; else loader">
+  <div class="avatar"><img [src]="avatarPath(currentUser.id)" /></div>
+  <div class="info">
+    <div class="username">{{currentUser.username}}</div>
+    <div class="email">{{currentUser.email}}</div>
+  </div>
+  <hr>
 
-<a href="javascript:void(0);" (click)="logout($event)">
-  Log out
-</a>
+  <a href="javascript:void(0);" (click)="logout($event)">
+    Log out
+  </a>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

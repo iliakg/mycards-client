@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser'
 import {RouterModule, Routes} from '@angular/router'
-import {HttpClientModule} from '@angular/common/http'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 
+import {TokenInterceptor} from './shared/services/token.interceptor'
 import {AppComponent} from './app.component'
 import {ApplicationLayoutComponent} from './layouts/application-layout/application-layout.component'
 import {NotFoundComponent} from './not-found/not-found.component'
@@ -43,7 +44,9 @@ const appRoutes: Routes = [
     ApplicationLayoutComponent,
     NotFoundComponent
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, multi: true, useClass: TokenInterceptor},
+  ],
   bootstrap: [AppComponent]
 })
 

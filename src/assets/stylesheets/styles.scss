@@ -3,13 +3,16 @@
 @import "~materialize-css/sass/materialize";
 @import "icons";
 
-$medium_green: #0ba360;
+$border_color: color("blue-grey", "lighten-3");
+$hint_text: color("blue-grey", "lighten-1");
 $light_green: #3cba92;
+$medium_green: #0ba360;
 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 1rem;
 }
 
 h1 {
@@ -18,6 +21,18 @@ h1 {
 
 a {
   color: $medium_green;
+}
+
+input {
+  font-size: 1rem;
+}
+
+.preloader {
+  margin: 2rem 0;
+
+  .active .spinner-layer {
+    border-color: $medium_green;
+  }
 }
 
 nav {
@@ -43,7 +58,8 @@ nav {
   bottom: 0;
   padding: 3px 0 4px;
   text-align: center;
-  color: color("blue-grey", "lighten-1");
+  font-size: 0.8rem;
+  color: $hint_text;
 }
 
 #auth_wrap {
@@ -141,4 +157,41 @@ nav {
 #content_wrap {
   width: 100%;
   overflow: hidden;
+}
+
+#profile_wrap {
+  padding: 2rem;
+
+  .avatar {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      border: 2px solid $light_green;
+      border-radius: 50%;
+    }
+  }
+
+  .info {
+    margin-top: 0.5rem;
+    text-align: center;
+
+    .username {
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .email {
+      color: $hint_text;
+    }
+  }
+
+  hr {
+    background-color: $border_color;
+    height: 1px;
+    margin: 1.5rem 0;
+    border: 0;
+  }
 }
