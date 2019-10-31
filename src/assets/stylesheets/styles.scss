@@ -3,6 +3,9 @@
 @import "~materialize-css/sass/materialize";
 @import "icons";
 
+$medium_green: #0ba360;
+$light_green: #3cba92;
+
 html, body {
   height: 100%;
   margin: 0;
@@ -14,6 +17,7 @@ h1 {
 }
 
 nav {
+  background-color: $light_green;
   height: 64px;
   line-height: 64px;
 
@@ -29,6 +33,7 @@ nav {
 }
 
 #login_modal {
+  background-image: linear-gradient(to bottom, $light_green 0%, $medium_green 100%);
   width: 100%;
   height: 100%;
   max-height: 100%;
@@ -36,7 +41,65 @@ nav {
   border-radius: 0;
 
   .modal-content {
+    padding: 4rem 2rem;
+  }
 
+  .title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: white;
+  }
+
+  .form_content {
+    margin-top: 6rem;
+
+    ul.form_errors {
+      margin: -2.5rem 0 1rem 0;
+      text-align: center;
+      font-weight: 500;
+      color: color("amber", "accent-2");
+    }
+
+    .input-field {
+      input {
+        color: white;
+        border-bottom: 1px solid white;
+        box-shadow: 0 0 0 0 white;
+
+        & + label {
+          color: rgba(255, 255, 255, .8);
+        }
+
+        &:focus + label {
+          color: rgba(255, 255, 255, .8);
+        }
+
+        &:focus {
+          box-shadow: 0 1px 0 0 white;
+        }
+
+        &.invalid {
+          border-bottom: 1px solid color("amber", "accent-2");
+          box-shadow: 0 1px 0 0 color("amber", "accent-2");
+        }
+      }
+
+      .helper-text {
+        color: color("amber", "accent-2");
+      }
+    }
+
+    button {
+      background-color: white;
+      width: 100%;
+      height: 42px;
+      line-height: 42px;
+      color: $medium_green;
+      font-weight: 500;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+    }
   }
 }
 

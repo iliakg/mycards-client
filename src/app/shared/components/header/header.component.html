@@ -1,6 +1,5 @@
 <nav>
   <div class="nav-wrapper">
-
     <div class="row">
       <div class="col s3 m3 l3 center">
         <a routerLink="/">
@@ -28,7 +27,61 @@
 
 <div id="login_modal" class="modal">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onLoginSubmit()"
+      autocomplete="off"
+    >
+      <div class="title">Login to Your Account</div>
+      <div class="form_content">
+        <ul *ngIf="loginError" class="form_errors">
+          <li>Incorrect Email or Password</li>
+        </ul>
+        <div class="input-field">
+          <input
+            formControlName="email"
+            id="email"
+            type="email"
+            [ngClass]="{'invalid': loginForm.get('email').invalid && loginForm.get('email').touched}"
+          >
+          <label for="email">Email:</label>
+          <span
+            class="helper-text"
+            *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched"
+          >
+            <span *ngIf="loginForm.get('email').errors['required']">Email cannot be blank</span>
+            <span *ngIf="loginForm.get('email').errors['email']">Enter correct Email</span>
+          </span>
+        </div>
+        <div class="input-field">
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            [ngClass]="{'invalid': loginForm.get('password').invalid && loginForm.get('password').touched}"
+          >
+          <label for="password">Password:</label>
+          <span
+            class="helper-text"
+            *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched"
+          >
+            <span *ngIf="loginForm.get('password').errors['required']">Password cannot be blank</span>
+            <span
+              *ngIf="loginForm.get('password').errors['minlength'] && loginForm.get('password').errors['minlength']['requiredLength']">
+              Password must be {{loginForm.get('password').errors['minlength']['requiredLength']}} characters.
+              Now {{loginForm.get('password').errors['minlength']['actualLength']}}
+            </span>
+          </span>
+        </div>
+
+        <button
+          type="submit"
+          class="modal-action btn waves-effect"
+          [disabled]="loginForm.invalid || loginForm.disabled"
+        >
+          Sign In
+        </button>
+      </div>
+    </form>
   </div>
 </div>

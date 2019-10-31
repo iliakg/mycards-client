@@ -2,11 +2,13 @@ declare var M
 
 export class MaterialService {
   static toast(error, classes: string = '') {
-    const html =
-      (error.error && error.error.message) ||
-      error.message ||
-      error ||
-      'Unexpected Error'
+    let html = ''
+    if (error.error && error.error.errors) {
+      html = error.error.errors[0].msg
+    } else {
+      html = 'Unexpected Error'
+    }
+
     M.toast({html, classes})
   }
 

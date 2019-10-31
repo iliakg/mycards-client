@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser'
 import {RouterModule, Routes} from '@angular/router'
+import {HttpClientModule} from '@angular/common/http'
 
 import {AppComponent} from './app.component'
 import {ApplicationLayoutComponent} from './layouts/application-layout/application-layout.component'
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
+    HttpClientModule,
     SharedModule
   ],
   declarations: [
