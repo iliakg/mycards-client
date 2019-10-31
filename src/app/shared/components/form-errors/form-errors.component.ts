@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core'
-import {Error} from '../../interfaces'
+import {ResponseError} from '../../interfaces'
 
 @Component({
   selector: 'app-form-errors',
@@ -7,5 +7,5 @@ import {Error} from '../../interfaces'
 })
 
 export class FormErrorsComponent {
-  @Input() errors: Error[]
+  @Input() errors: ResponseError[]
 }

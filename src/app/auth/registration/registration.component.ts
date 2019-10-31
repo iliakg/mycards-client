@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core'
 import {FormControl, FormGroup, Validators} from '@angular/forms'
-import {AuthService} from '../../shared/services/auth.service'
 import {Router} from '@angular/router'
+
+import {ProfileService} from '../../shared/services/profile.service'
+import {ResponseError} from '../../shared/interfaces'
 
 @Component({
   selector: 'app-registration',
@@ -9,10 +11,11 @@ import {Router} from '@angular/router'
 })
 
 export class RegistrationComponent implements OnInit {
+  formErrors: ResponseError[] = []
   form: FormGroup
 
   constructor(
-    private auth: AuthService,
+    private profileService: ProfileService,
     private router: Router
   ) {
   }
@@ -26,16 +29,17 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.form.disable()
-    //
-    // this.auth.registration(this.form.value).subscribe(
-    //   () => {
-    //     this.router.navigate(['/'])
-    //   },
-    //   error => {
-    //     // MaterialService.toast(error, 'error')
-    //     this.form.enable()
-    //   }
-    // )
+    this.form.disable()
+
+    this.profileService.create(this.form.value).subscribe(
+      () => {
+        this.formErrors = []
+        this.router.navigate(['/'])
+      },
+      errorResponse => {
+        this.formErrors = errorResponse.error.errors
+        this.form.enable()
+      }
+    )
   }
 }

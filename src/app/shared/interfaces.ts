@@ -1,6 +1,8 @@
-export interface Error {
-  path: string
-  message: string
+export interface ResponseError {
+  code: number
+  item: string
+  msg: string
+  status: string
 }
 
 export interface User {
