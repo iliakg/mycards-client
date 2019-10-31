@@ -3,6 +3,7 @@
 @import "~materialize-css/sass/materialize";
 @import "icons";
 
+$background_color: #fbfdff;
 $text_color: color("blue-grey", "darken-2");
 $border_color: color("blue-grey", "lighten-3");
 $hint_text: color("blue-grey", "lighten-1");
@@ -10,6 +11,7 @@ $light_green: #3cba92;
 $medium_green: #0ba360;
 
 html, body {
+  background-color: $background_color;
   height: 100%;
   margin: 0;
   padding: 0;
