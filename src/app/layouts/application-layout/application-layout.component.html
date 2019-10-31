@@ -2,3 +2,6 @@
 <div id="content_wrap">
   <router-outlet></router-outlet>
 </div>
+<div *ngIf="!isAuthenticated" class="register_hint">
+  Please <a routerLink="/auth/login">login</a> or <a routerLink="/auth/registration">register</a> an account now.
+</div>

@@ -9,9 +9,11 @@ import {NotFoundComponent} from './not-found/not-found.component'
 import {SharedModule} from './shared/shared.module'
 
 const appRoutes: Routes = [
+  {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
   {
     path: '', component: ApplicationLayoutComponent, children: [
       {path: 'favorites', loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesModule)},
+      {path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
       {path: 'not-found', component: NotFoundComponent}
     ]
   },

@@ -1,0 +1,61 @@
+<div class="login_wrap">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    autocomplete="off"
+  >
+    <div class="title">Login to Your Account</div>
+    <div class="form_content">
+      <ul *ngIf="loginError" class="form_errors">
+        <li>Incorrect Email or Password</li>
+      </ul>
+      <div class="input-field">
+        <input
+          formControlName="email"
+          id="email"
+          type="email"
+          [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+        >
+        <label for="email">Email:</label>
+        <span
+          class="helper-text"
+          *ngIf="form.get('email').invalid && form.get('email').touched"
+        >
+          <span *ngIf="form.get('email').errors['required']">Email cannot be blank</span>
+          <span *ngIf="form.get('email').errors['email']">Enter correct Email</span>
+        </span>
+      </div>
+      <div class="input-field">
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          [ngClass]="{'invalid': form.get('password').invalid && form.get('password').touched}"
+        >
+        <label for="password">Password:</label>
+        <span
+          class="helper-text"
+          *ngIf="form.get('password').invalid && form.get('password').touched"
+        >
+          <span *ngIf="form.get('password').errors['required']">Password cannot be blank</span>
+          <span
+            *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
+            Password must be {{form.get('password').errors['minlength']['requiredLength']}} characters.
+            Now {{form.get('password').errors['minlength']['actualLength']}}
+          </span>
+        </span>
+      </div>
+
+      <button
+        type="submit"
+        class="modal-action btn waves-effect"
+        [disabled]="form.invalid || form.disabled"
+      >
+        Sign In
+      </button>
+    </div>
+  </form>
+  <div class="hint">
+    Don't have an account? <a routerLink="/auth/registration">Sign Up</a>
+  </div>
+</div>
