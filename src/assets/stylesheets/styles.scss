@@ -223,7 +223,16 @@ nav {
   }
 }
 
-#profile_flashcards_wrap, #settings_wrap {
+#favorites_wrap, #mycards_wrap {
+  padding: 1rem;
+
+  .title {
+    text-align: center;
+    font-size: 22px;
+  }
+}
+
+#create_set_wrap, #settings_wrap {
   padding: 1rem;
 
   .title {

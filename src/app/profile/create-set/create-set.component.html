@@ -1,0 +1,12 @@
+<div id="create_set_wrap" *ngIf="($currentUser | async) as currentUser; else loader">
+  <div class="title">
+    <a routerLink="/profile" class="back_link">
+      <i class="icon icons-back"></i>
+    </a>
+    Create Set
+  </div>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

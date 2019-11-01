@@ -1,0 +1,7 @@
+<div id="favorites_wrap" *ngIf="($currentUser | async) as currentUser; else loader">
+  <div class="title">Favorites</div>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

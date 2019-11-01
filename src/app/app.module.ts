@@ -15,12 +15,6 @@ const appRoutes: Routes = [
   {
     path: '', component: ApplicationLayoutComponent, children: [
       {
-        path: 'favorites',
-        loadChildren: () => import('./favorites/favorites.module').then(m => m.FavoritesModule),
-        canActivate: [AuthGuard],
-        canLoad: [AuthGuard]
-      },
-      {
         path: 'profile',
         loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
         canActivate: [AuthGuard],
