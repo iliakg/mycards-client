@@ -222,3 +222,19 @@ nav {
     }
   }
 }
+
+#profile_flashcards_wrap, #settings_wrap {
+  padding: 1rem;
+
+  .title {
+    text-align: center;
+    font-size: 22px;
+    position: relative;
+
+    a.back_link {
+      position: absolute;
+      left: 0;
+      padding-top: 0.2rem;
+    }
+  }
+}

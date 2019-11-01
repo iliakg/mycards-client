@@ -9,12 +9,16 @@
 
   <ul class="profile-list">
     <li>
-      <i class="icon icons-profile-cards"></i>
-      My Flashcards
+      <a routerLink="/profile/cards">
+        <i class="icon icons-profile-cards"></i>
+        My Flashcards
+      </a>
     </li>
     <li>
-      <i class="icon icons-settings"></i>
-      Settings
+      <a routerLink="/profile/settings">
+        <i class="icon icons-settings"></i>
+        Settings
+      </a>
     </li>
     <li>
       <a href="javascript:void(0);" (click)="logout($event)">

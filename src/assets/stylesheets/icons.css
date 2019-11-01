@@ -76,3 +76,7 @@
 .icons-profile-cards:before {
   content: "\6a";
 }
+
+.icons-back:before {
+  content: "\6b";
+}
